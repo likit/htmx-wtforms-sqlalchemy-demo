@@ -2,3 +2,4 @@ Flask==2.2.2
 SQLAlchemy==1.4.44
 WTForms-Alchemy==0.18.0
 Flask-WTF==1.0.1
+Flask-SQLAlchemy==3.0.2

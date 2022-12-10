@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<section class="section">
+  <div class="columns">
+      <div class="column box is-one-third is-offset-4">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="is-{{ category }} is-light notification">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <h1 class="title has-text-centered">Sign Up / Login</h1>
+        <form method="post">
+          {{ form.hidden_tag() }}
+          <div class="field">
+            <label class="label">{{ form.email.label }}</label>
+            <div class="control">
+              {{ form.email(class="input") }}
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">{{ form.password.label }}</label>
+            <div class="control">
+              {{ form.password(class="input") }}
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              {{ form.submit(class="button is-success") }}
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
+</section>
+{% endblock %}
