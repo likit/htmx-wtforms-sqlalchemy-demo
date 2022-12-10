@@ -13,7 +13,7 @@
           {% endif %}
         {% endwith %}
         <h1 class="title has-text-centered">Sign Up / Login</h1>
-        <form method="post">
+        <form hx-post="{{url_for('main.process_login_form')}}">
           {{ form.hidden_tag() }}
           <div class="field">
             <label class="label">{{ form.email.label }}</label>
@@ -29,11 +29,24 @@
           </div>
           <div class="field">
             <div class="control">
-              {{ form.submit(class="button is-success") }}
+              <button class="button is-success" id="submit" type="submit">Submit</button>
             </div>
           </div>
         </form>
       </div>
   </div>
 </section>
+{% endblock %}
+{% block scripts %}
+{{super()}}
+<script>
+  function toggleLoading() {
+    let el = document.getElementById('submit')
+    el.classList.add('is-loading')
+  }
+  let el = document.getElementById('submit')
+  el.addEventListener('click', function() {
+    toggleLoading()
+  })
+</script>
 {% endblock %}

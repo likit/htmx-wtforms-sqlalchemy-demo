@@ -1,13 +1,18 @@
 <!doctype HTML>
 <html>
   <head>
+    {% block styles %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-calendar@6.1.18/dist/css/bulma-calendar.min.css">
+    {% endblock %}
   </head>
   <body>
     {% block content %}
     {% endblock %}
     {% block scripts %}
+      <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.8.4/htmx.min.js" integrity="sha512-KaCnhbNFxSS4ydQMZ4zrTrk/Gf8wx2xPJ8tfZgkkmY6+hVql4eFa04HqMnM1RdUygzLEIByqbClYHvDoKm1H/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <script src="https://cdn.jsdelivr.net/npm/bulma-calendar@6.1.18/dist/js/bulma-calendar.min.js"></script>
     {% endblock %}
   </body>
