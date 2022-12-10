@@ -9,15 +9,19 @@ from app.main.models import User
 def index():
     form = LoginForm()
     if form.validate_on_submit():
-        if User.query.get(form.email.data):
-            flash('The email already exists.', 'danger')
+        user = User.query.get(form.email.data)
+        if user:
+            if user.password == form.password.data:
+                flash('Login successfully', 'success')
+            else:
+                flash('The email already exists.', 'danger')
         else:
             user = User()
             user.email = form.email.data
             user.password = form.password.data
             db.session.add(user)
             db.session.commit()
-            flash('Login or sign up successfully.', 'success')
+            flash('Sign up successfully.', 'success')
     else:
         for field, err in form.errors.items():
             flash(f'{field}:{err}', 'danger')
